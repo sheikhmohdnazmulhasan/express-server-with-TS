@@ -12,10 +12,12 @@ exports.port = port;
 app.use(express_1.default.json());
 // middleware
 function logger(req, res, next) {
-    cons;
+    console.log(req.method, req.hostname);
+    next();
 }
+;
 // //////
-app.get('/:userId/:xx', (req, res) => {
+app.get('/', logger, (req, res) => {
     console.log(req.params);
     res.send('Hello Sheikh!');
 });

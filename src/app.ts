@@ -9,13 +9,14 @@ app.use(express.json());
 // middleware
 
 function logger(req: Request, res: Response, next: NextFunction) {
-    cons
-}
+    console.log(req.method, req.hostname);
+    next()
+};
 
 // //////
 
 
-app.get('/:userId/:xx', (req: Request, res: Response) => {
+app.get('/', logger, (req: Request, res: Response) => {
     console.log(req.params);
     res.send('Hello Sheikh!');
 });
